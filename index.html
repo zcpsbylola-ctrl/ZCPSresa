@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>ZCPS Réservation</title>
+  <link rel="stylesheet" href="style-mobile.css" />
+</head>
+<body>
+  <main class="container" role="main">
+    <img src="images/logo_zcps_3.png" alt="Logo ZCPS by Lola" class="logo" />
+
+    <h1 class="title">Réservation ZCPS</h1>
+
+    <label for="datePicker" class="label">Date</label>
+    <input id="datePicker" class="input picker" type="text" placeholder="jj/mm/aaaa" readonly />
+
+    <label for="timePicker" class="label">Heure</label>
+    <input id="timePicker" class="input picker" type="text" placeholder="HH:mm" readonly />
+
+    <div id="summary" aria-live="polite"></div>
+
+    <button id="whatsappBtn" type="button" aria-disabled="true">Réserver via WhatsApp</button>
+
+    <p class="small muted">Partage privé via WhatsApp. Aucun suivi externe.</p>
+  </main>
+
+  <!-- Librairies nécessaires -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css" />
+
+  <!-- Clocklet minimal script inclusion si utilisé. Remplacer si tu utilises une autre source -->
+  <script src="https://unpkg.com/clocklet/dist/clocklet.min.js" defer></script>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

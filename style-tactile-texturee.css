@@ -1,0 +1,240 @@
+/* VARIANTE 2 : TACTILE TEXTURÉE */
+/* Matière, relief discret, icônes dorées, sensation tactile */
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #fff8f0 0%, #fffaf5 100%);
+  background-attachment: fixed;
+  color: #3c2a21;
+  text-align: center;
+  padding: 2rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  /* Texture subtile de papier */
+  background-image: 
+    linear-gradient(135deg, #fff8f0 0%, #fffaf5 100%),
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(212, 175, 55, 0.03) 2px, rgba(212, 175, 55, 0.03) 4px);
+}
+
+h1 {
+  color: #d4af37;
+  margin-top: 1rem;
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-shadow: 1px 1px 2px rgba(212, 175, 55, 0.1);
+}
+
+.logo {
+  max-width: 220px;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 4px 8px rgba(212, 175, 55, 0.15));
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.02);
+}
+
+#date-input,
+#time-input {
+  margin: 0.8rem auto;
+  max-width: 300px;
+  padding: 1rem;
+  border: 2px solid #d4af37;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #3c2a21;
+  background-color: #fcf8f0;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+  transition: all 0.3s ease;
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#date-input::placeholder,
+#time-input::placeholder {
+  color: #d4af37;
+  opacity: 0.7;
+}
+
+#date-input:focus,
+#time-input:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: #fffaf5;
+}
+
+#whatsapp {
+  margin-top: 1.5rem;
+  background: linear-gradient(135deg, #d4af37 0%, #c9a227 100%);
+  color: #3c2a21;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+#whatsapp::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+#whatsapp:hover::before {
+  left: 100%;
+}
+
+#whatsapp:disabled {
+  background: linear-gradient(135deg, #e8e8e8 0%, #d9d9d9 100%);
+  color: #999;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+#whatsapp:not(:disabled):hover {
+  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.4);
+  transform: translateY(-2px);
+}
+
+#whatsapp:not(:disabled):active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+}
+
+#selected-datetime {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #d4af37;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 0.5rem 1rem;
+  background: rgba(212, 175, 55, 0.05);
+  border-radius: 4px;
+  border-left: 3px solid #d4af37;
+}
+
+.error-message {
+  color: #c0392b;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  min-height: 1.5rem;
+  padding: 0.5rem;
+  background: rgba(192, 57, 43, 0.05);
+  border-radius: 4px;
+}
+
+/* Flatpickr customisation - Tactile */
+.flatpickr-calendar {
+  border: 2px solid #d4af37;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  background: #fcf8f0;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange,
+.flatpickr-day.endRange:hover {
+  background: linear-gradient(135deg, #d4af37 0%, #c9a227 100%);
+  border-color: #d4af37;
+  color: #3c2a21;
+  box-shadow: 0 2px 4px rgba(212, 175, 55, 0.3);
+}
+
+.flatpickr-day.today:not(.selected) {
+  border-color: #d4af37;
+  border-width: 2px;
+}
+
+.flatpickr-day:hover {
+  background: #f5f5f5;
+  border-color: #d4af37;
+}
+
+/* Clocklet customisation - Tactile */
+.clocklet {
+  border: 2px solid #d4af37;
+  border-radius: 8px;
+  background-color: #fcf8f0;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+}
+
+.clocklet-hand {
+  background: linear-gradient(135deg, #d4af37 0%, #c9a227 100%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.clocklet-center {
+  background-color: #3c2a21;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.clocklet-number {
+  color: #3c2a21;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .logo {
+    max-width: 180px;
+  }
+  #whatsapp {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  .logo {
+    max-width: 150px;
+  }
+  #date-input,
+  #time-input {
+    max-width: 90%;
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+  #whatsapp {
+    padding: 0.7rem 1.8rem;
+    font-size: 0.9rem;
+  }
+}
+

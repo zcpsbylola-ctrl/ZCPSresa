@@ -1,0 +1,86 @@
+:root {
+  --gold: #d4af37;
+  --cream: #fff8f0;
+  --bg: linear-gradient(180deg, var(--cream), #fffaf5);
+  --touch-size: 48px;
+  --max-width: 420px;
+  --muted: #6b6b6b;
+  --accent-text: #2b1a10;
+}
+
+/* Reset léger */
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html,body { height:100%; margin:0; font-family: Inter, system-ui, -apple-system, "Helvetica Neue", Arial; background:var(--bg); color:#111; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+
+/* Container mobile centered */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Logo and title */
+.logo { display:block; max-width:150px; margin:0.5rem auto; }
+.title { text-align:center; color:var(--gold); letter-spacing:1px; margin:0.25rem 0 0.8rem 0; font-size:1.05rem; font-weight:700; }
+
+/* Labels */
+.label { display:block; font-size:0.85rem; margin:0.6rem 0 0.25rem; color:var(--muted); }
+
+/* Inputs and pickers */
+.input, .picker {
+  width:100%;
+  height:48px;
+  min-height:var(--touch-size);
+  border:1px solid rgba(212,175,55,0.35);
+  border-radius:10px;
+  padding:0 0.75rem;
+  background:rgba(255,255,255,0.95);
+  font-size:1rem;
+  color:var(--accent-text);
+  -webkit-appearance:none;
+  appearance:none;
+}
+
+/* Summary */
+#summary { margin-top:0.5rem; color:var(--gold); font-weight:600; text-align:center; }
+
+/* WhatsApp button */
+#whatsappBtn {
+  width:100%;
+  height:52px;
+  min-height:var(--touch-size);
+  background:linear-gradient(90deg, #b78a1f, #e0c16a);
+  color:var(--accent-text);
+  font-weight:700;
+  border:none;
+  border-radius:12px;
+  font-size:1.05rem;
+  margin-top:0.9rem;
+  opacity:0.45;
+  pointer-events:none;
+  transition:opacity 150ms ease, transform 120ms ease;
+}
+
+/* Enabled state */
+#whatsappBtn.enabled {
+  opacity:1;
+  pointer-events:auto;
+}
+
+#whatsappBtn:active { transform: translateY(1px); }
+
+/* Small text */
+.small { font-size:0.85rem; margin-top:0.8rem; text-align:center; color:var(--muted); }
+
+/* Accessible focus */
+.input:focus, .picker:focus, #whatsappBtn:focus {
+  outline:3px solid rgba(212,175,55,0.18);
+  outline-offset:2px;
+  border-color:rgba(212,175,55,0.6);
+}
+
+/* Flatpickr mobile tweaks */
+.flatpickr-calendar { font-family:inherit; }
+
+/* Hide desktop-specific elements */
+.desktop-only { display:none; }
