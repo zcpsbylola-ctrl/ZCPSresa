@@ -1,11 +1,15 @@
 // Configuration centralisée
-const WHATSAPP_NUMBER = "33612345678"; // remplacer par le numéro de Lola en format international sans + ni espaces
+// Le numéro WhatsApp est maintenant récupéré dynamiquement depuis l'attribut data-whatsapp-number du bouton.
+// Fallback au cas où l'attribut ne serait pas défini.
+const FALLBACK_WHATSAPP_NUMBER = "33612345678";
 
 // Utilitaires
 function buildWhatsAppUrl(dateStr, timeStr) {
+  const btn = el("whatsappBtn");
+  const whatsappNumber = btn.dataset.whatsappNumber || FALLBACK_WHATSAPP_NUMBER;
   const message = `Bonjour Lola, je souhaite réserver le créneau du ${dateStr} ${timeStr} ZCPS 💫`;
   const encoded = encodeURIComponent(message);
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+  return `https://wa.me/${whatsappNumber}?text=${encoded}`;
 }
 
 function el(id) { return document.getElementById(id); }
@@ -16,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const timeInput = el("timePicker");
   const btn = el("whatsappBtn");
   const summary = el("summary");
+  const errorMsg = el("error-message");
 
   // Flatpickr mobile-friendly
   if (window.flatpickr) {
@@ -66,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
     btn.disabled = !ok;
     btn.setAttribute("aria-disabled", (!ok).toString());
     summary.textContent = ok ? `Créneau choisi : ${date} ${time} 💫` : "";
+    errorMsg.textContent = ""; // Clear error message on successful selection
   }
 
   // Initial state
@@ -76,9 +82,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const date = getDateValue();
     const time = getTimeValue();
     if (!date || !time) {
-      alert("Veuillez choisir une date et une heure pour votre réservation 💫");
+      errorMsg.textContent = "Veuillez choisir une date et une heure pour votre réservation 💫";
       return;
     }
+    errorMsg.textContent = ""; // Clear error message before redirect
     const url = buildWhatsAppUrl(date, time);
     window.location.href = url;
   });
