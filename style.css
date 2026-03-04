@@ -1,0 +1,17 @@
+/* Style de base */
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,sans-serif;}
+.main-header{text-align:center;padding:1em;background:#ffefef;}
+.loader{text-align:center;padding:2em;}
+.calendar-container{display:flex;overflow-x:auto;}
+.day-column{flex:0 0 auto;width:80px;margin:0 4px;}
+.day-header{text-align:center;padding:4px;background:#f8f8f8;}
+.day-name{font-weight:bold;}
+.timeline{display:flex;flex-direction:column;}
+.time-slot{padding:4px;margin:1px;background:#e0e0e0;cursor:pointer;}
+.time-slot.past{background:#ccc;cursor:not-allowed;}
+.time-slot.booked{background:#faa;cursor:not-allowed;}
+.time-slot.selected{background:#8f8;}
+.footer{position:fixed;bottom:0;width:100%;background:#fff;padding:0.5em;box-shadow:0 -2px 5px rgba(0,0,0,0.1);}
+.selection-info.active{font-weight:bold;}
+.btn{padding:0.5em 1em;margin:0 0.2em;cursor:pointer;}
+.btn:disabled{opacity:0.5;cursor:not-allowed;}
